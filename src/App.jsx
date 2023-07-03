@@ -47,6 +47,12 @@ function App() {
       <p className="text-center my-10 text-indigo-600 font-extrabold text-5xl">
         {formatearDinero(cantidad)}
       </p>
+
+      <select className="mt-5 w-full p-2 bg-white border border-gray-300 rounded-lg text-center text-xl font-bold text-gray-500">
+        <option value="6">6 meses</option>
+        <option value="12">12 meses</option>
+        <option value="24">24 meses</option>
+      </select>
     </div>
   );
 }
