@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Button from "./components/Button";
+import { formatearDinero } from "./helpers";
 
 function App() {
   const [cantidad, setCantidad] = useState(10000);
@@ -12,7 +13,7 @@ function App() {
   }
   function handleOnclickDecremento() {
     const valor = cantidad - step;
-    if (valor < 0) {
+    if (valor < min) {
       alert("El dinero no puede ser menor a 0");
     } else {
       setCantidad(valor);
@@ -20,11 +21,11 @@ function App() {
   }
   function handleOnclickIncremento() {
     const valor = cantidad + step;
-    if (valor > 20000) {
+    if (valor > max) {
       alert("El dinero no puede ser mayor a 20000");
-    } else {
-      setCantidad(valor);
+      return;
     }
+    setCantidad(valor);
   }
 
   return (
@@ -44,7 +45,7 @@ function App() {
         value={cantidad}
       />
       <p className="text-center my-10 text-indigo-600 font-extrabold text-5xl">
-        {cantidad}
+        {formatearDinero(cantidad)}
       </p>
     </div>
   );
